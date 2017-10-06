@@ -15,7 +15,7 @@ Add to your `app/adapters/application.js`:
 ```javascript
 import Ember        from 'ember'
 import DS           from 'ember-data'
-import CachedShoe   from 'ember-cached-shoe
+import CachedShoe   from 'ember-cached-shoe'
 
 export default  DS.JSONAPIAdapter.extend(CachedShoe, {
   // code ommited
