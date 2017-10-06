@@ -1,26 +1,41 @@
 # ember-cached-shoe
 
-This README outlines the details of collaborating on this Ember addon.
+This addon tries to improve `ember-cli-fastboot` rehydration process. App served by `fastboot` server resolves model hooks twice - in node.js environment and in the browser. This behaviour leads to making redundant requests and causes additonal slowdown after initial load.
+
+This addon solves this problem.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-cached-shoe`
-* `npm install`
+`ember install ember-cached-shoe`
 
-## Running
+## Usage
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+Add to your `app/adapters/application.js`:
 
-## Running Tests
+```javascript
+import Ember        from 'ember'
+import DS           from 'ember-data'
+import CachedShoe   from 'ember-cached-shoe
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+export default  DS.JSONAPIAdapter.extend(CachedShoe, {
+  // code ommited
+})
+```
 
-## Building
+It works with any type of adapter that implements `ajax` function (e.g. `JSONAPIAdapter`, `RESTAdapter`). Since now, second resolvation of model hooks, will serve cached response.
 
-* `ember build`
+`app/routes/my-route.js`:
 
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+```javascript
+import Ember from 'ember'
+
+export default  Ember.Route.extend({
+  model() {
+    this.store.findAll('posts') // called twice, second call serves cached response
+  }
+})
+```
+
+## How it works
+
+It leverages capabilities of `fastboot.shoebox` to store results of ajax calls performed on the server. Special token is generated for each request (based on url and data). Response is stored in `shoebox` under that token.

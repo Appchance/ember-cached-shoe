@@ -1,24 +1,30 @@
 {
   "name": "ember-cached-shoe",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.1",
+  "description": "Fastboot rehydration without redundant ajax",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "fastboot",
+    "shoebox",
+    "ajax"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Appchance",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/Appchance/ember-cached-shoe",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
     "test": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-babel": "^6.3.0"
+    "b2a": "^1.0.9",
+    "broccoli-webpack": "^1.0.0",
+    "ember-cli-babel": "^6.3.0",
+    "ember-cli-node-assets": "^0.2.2"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
