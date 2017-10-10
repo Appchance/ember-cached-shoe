@@ -1,6 +1,6 @@
 {
   "name": "ember-cached-shoe",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Fastboot rehydration without redundant ajax",
   "keywords": [
     "ember-addon",
