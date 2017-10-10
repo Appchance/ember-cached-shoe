@@ -25,7 +25,8 @@ export default Service.extend({
     return response ? JSON.parse(response) : response
   },
 
-  tokenizeAjaxRequest(url, type, {data}) {
+  tokenizeAjaxRequest(url, type, options = {}) {
+    let data = options.data
     let separator = this.get('separator')
     return b2a.btoa([
       url,
