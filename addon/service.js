@@ -21,8 +21,13 @@ export default Service.extend({
 
   popResponse(requestToken) {
     let response = this.get('fastboot.shoebox').retrieve(requestToken)
-    $(`#shoebox-${requestToken}`).remove()
+    this.eraseResponse(requestToken)
     return response ? JSON.parse(response) : response
+  },
+
+  eraseResponse(requestToken) {
+    $(`#shoebox-${requestToken}`).remove()
+    this.set(`fastboot.shoebox.${requestToken}`, undefined)
   },
 
   tokenizeAjaxRequest(url, type, options = {}) {
