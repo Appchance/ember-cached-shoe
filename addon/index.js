@@ -13,7 +13,8 @@ export default Mixin.create({
   cachedShoe:   service(),
 
   ajax(...args) {
-    let requestToken = this.get('cachedShoe').tokenizeAjaxRequest(...args)
+    let tokenizeParams = this._paramsToTokenize(...args)
+    let requestToken = this.get('cachedShoe').tokenizeAjaxRequest(...tokenizeParams)
 
     if(this.get('fastboot.isFastBoot')) {
       return this._super(...arguments).then(
@@ -30,5 +31,12 @@ export default Mixin.create({
     }
 
     return this._super(...arguments)
+  },
+
+  _paramsToTokenize(...args) {
+    if (typeof this.paramsToTokenize === 'function'){
+      return this.paramsToTokenize(...args);
+    }
+    return args
   }
 })
