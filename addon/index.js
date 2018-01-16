@@ -12,15 +12,16 @@ export default Mixin.create({
   fastboot:     service(),
   cachedShoe:   service(),
 
-  ajax(...args) {
-    let requestToken = this.get('cachedShoe').tokenizeAjaxRequest(...args)
+  ajax() {
+    let requestToken = this._tokenizeAjaxRequest(...arguments)
 
     if(this.get('fastboot.isFastBoot')) {
-      return this._super(...arguments).then(
-        (response) => this.get('cachedShoe').pushResponse(requestToken, response)
-      )
+      return this
+        ._super(...arguments)
+        .then(r =>
+          this.get('cachedShoe').pushResponse(requestToken, r)
+        )
     }
-
     let cachedResponse = this.get('cachedShoe').popResponse(requestToken)
 
     if(cachedResponse) {
@@ -30,5 +31,12 @@ export default Mixin.create({
     }
 
     return this._super(...arguments)
+  },
+
+  _tokenizeAjaxRequest() {
+    return (
+      this.tokenizeAjaxRequest ||
+      this.get('cachedShoe').tokenizeAjaxRequest
+    ).apply(this, arguments)
   }
 })

@@ -10,6 +10,7 @@ const {
 export default Service.extend({
   fastboot:  service(),
   separator: '---',
+  b2a: b2a,
 
   pushResponse(requestToken, response) {
     this.get('fastboot.shoebox').put(
