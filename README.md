@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/dt/ember-cached-shoe.svg)](https://www.npmjs.com/package/ember-cached-shoe) [![npm version](https://img.shields.io/npm/v/ember-cached-shoe.svg)](https://www.npmjs.com/package/ember-cached-shoe)
+
 # ember-cached-shoe
 
 This addon tries to improve `ember-cli-fastboot` rehydration process. App served by `fastboot` server resolves model hooks twice - in node.js environment and in the browser. This behaviour leads to making redundant requests and causes additonal slowdown after initial load.
