@@ -3,8 +3,7 @@ import b2a   from 'b2a'
 
 const {
   Service,
-  inject: {service},
-  $
+  inject: {service}
 } = Ember
 
 export default Service.extend({
@@ -27,7 +26,8 @@ export default Service.extend({
   },
 
   eraseResponse(requestToken) {
-    $(`#shoebox-${requestToken}`).remove()
+    const element = document.getElementById(`shoebox-${requestToken}`)
+    element && element.parentNode.removeChild(element)
     this.set(`fastboot.shoebox.${requestToken}`, undefined)
   },
 
