@@ -33,6 +33,6 @@ export default Service.extend({
     return encodeData([url, type, JSON.stringify(data)].join(separator))
       .replace(/\+/g, "-")
       .replace(/\//g, "_")
-      .replace(/\=+$/, "");
+      .replace(/=+$/, "");
   }
 });
