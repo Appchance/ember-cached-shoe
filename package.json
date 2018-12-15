@@ -1,6 +1,6 @@
 {
   "name": "ember-cached-shoe",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Fastboot rehydration without redundant ajax",
   "keywords": [
     "ember-addon",
@@ -21,8 +21,6 @@
     "test": "ember try:each"
   },
   "dependencies": {
-    "b2a": "^1.0.9",
-    "broccoli-webpack": "^1.0.0",
     "ember-cli-babel": "^6.3.0",
     "ember-cli-node-assets": "^0.2.2"
   },
@@ -51,5 +49,8 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
-  }
+  },
+  "fastbootDependencies": [
+    "buffer"
+  ]
 }
