@@ -1181,9 +1181,9 @@ aws4@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
 
-b2a@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/b2a/-/b2a-1.0.9.tgz#3e09f9a744a5e16dd35aa547228111cf08d922f9"
+b2a@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/b2a/-/b2a-1.0.11.tgz#3e1e27bab975606348ff24e8ea84a4fd6d3bec62"
 
 babel-code-frame@^6.22.0, babel-code-frame@^6.26.0:
   version "6.26.0"
