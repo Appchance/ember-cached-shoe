@@ -6,6 +6,9 @@ module.exports = {
 
   options: {
     autoImport: {
+      alias: {
+        'b2a': 'b2a/lib/index.js'
+      },
       exclude: [],
       webpack: {}
     }
