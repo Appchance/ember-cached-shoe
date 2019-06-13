@@ -7,6 +7,7 @@ module.exports = {
   options: {
     autoImport: {
       alias: {
+        // otherwise will default to /src/index.js, which is not transpiled
         'b2a': 'b2a/lib/index.js'
       },
       exclude: [],
